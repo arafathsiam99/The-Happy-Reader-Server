@@ -9,7 +9,9 @@ wishlistRouter.get("/my", async (req: Request, res: Response) => {
   const token = req?.query?.token;
   //
   //console.log(req.query);
-  const verifyUser: JwtPayload | string | undefined = verifyToken(token);
+  const verifyUser: JwtPayload | string | undefined = verifyToken(
+    token as string
+  );
   //console.log(req.body);
   const email = typeof verifyUser === "object" ? verifyUser.userEmail : "";
 
